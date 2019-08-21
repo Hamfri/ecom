@@ -13,10 +13,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///.DS_Store'
 app.secret_key = '1v3#cc#tv$&*5c-W./r$'
 api = Api(app)
 
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
 jwt = JWT(app, authenticate, identity)
 
 api.add_resource(Item, '/item/<string:name>')
