@@ -1,4 +1,5 @@
-*.db
+.DS_Store
 __pycache__/
 *.pyc
 section5
+test.py
