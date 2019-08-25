@@ -1,0 +1,14 @@
+[Unit]
+Description=uWSGI ecom
+
+[Service]
+Environment=DATABASE_URL=postgres://zayne:qwerty1234@localhost:5432/zayne
+ExecStart=/var/www/html/ecom/venv/bin/uwsgi --master --emperor /var/www/html/ecom/uwsgi.ini --die-on
+-term --uid zayne --gid zayne --logto /var/www/html/ecom/emperor.log
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
